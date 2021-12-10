@@ -2,10 +2,9 @@
 import * as tpl from './module1.html'
 import Component from '../component'
 export default class Module1 extends Component{
-    _data = {};
     _component = {
         data: () => {
-            return this._data;
+            return {};
         },
         template: tpl,
         mounted:()=>{

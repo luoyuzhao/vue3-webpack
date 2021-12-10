@@ -59,6 +59,11 @@ export default class Util {
             console.error(reason);
         });
     }
+    static vueUse(obj,app){
+        Object.keys(obj).forEach(name=>{
+            app.use(obj[name]);
+        })
+    }
     static resolveJavaFunction(name, data) {
         return new Promise((resolve, reject) => {
             if (window[name]) {
