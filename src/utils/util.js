@@ -59,10 +59,36 @@ export default class Util {
             console.error(reason);
         });
     }
-    static vueUse(obj,app){
-        Object.keys(obj).forEach(name=>{
-            app.use(obj[name]);
+    static vueUse(antdObj,app){
+        Object.keys(antdObj).forEach(name=>{
+            app.use(antdObj[name]);
         })
+    }
+    static getStorage(key){
+        return new Promise((resolve, reject) => {
+            let str= localStorage.getItem(key);
+            try{
+                if(str&&str.length>0){
+                    resolve(JSON.parse(str));
+                }
+                resolve(null);
+            }
+            catch(err){
+                reject(err);
+            }
+        });
+    }
+    static setStorage(key,value){
+        return new Promise((resolve, reject) => {
+            try{
+                let str=JSON.stringify(value);
+                localStorage.setItem(key,str);
+                resolve(true);
+            }
+            catch(err){
+                reject(err);
+            }
+        });
     }
     static resolveJavaFunction(name, data) {
         return new Promise((resolve, reject) => {

@@ -42,6 +42,16 @@ export default class Main extends Component {
                 this.$router.push(name).catch(err => { });
             }
         },
+        mounted() {
+            let self=this;
+            self.$EventBus.on('msg',()=>{
+                //dosomething
+            });
+            this.$EventBus.emit("msg");
+        },
+        unmounted(){
+            this.$EventBus.off('msg');
+        },
         template: tpl
     }
     constructor() {
