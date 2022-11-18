@@ -170,6 +170,8 @@ module.exports = {
     ],
   },
   resolve: {
+   'vue': 'vue/dist/vue.esm-bundler.js',
+   'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js',
     extensions: ['.wasm', '.mjs', '.js', '.json', '.css', '.less']
   },
   externals: {
