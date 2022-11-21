@@ -170,8 +170,11 @@ module.exports = {
     ],
   },
   resolve: {
-   'vue': 'vue/dist/vue.esm-bundler.js',
-   'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js',
+   alias: {
+      //注意这里需要加入cjs.js防止build命令出错
+      'vue': 'vue/dist/vue.cjs.js',
+      'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js',
+    },
     extensions: ['.wasm', '.mjs', '.js', '.json', '.css', '.less']
   },
   externals: {
@@ -183,7 +186,7 @@ module.exports = {
   },
   plugins: [
     new ClearDistPlugin(),//清空dist
-    new ConfigRefPlugin(["thirdParty", "static"]),//自定义的插件用于替换引入路径
+    //new ConfigRefPlugin(["thirdParty", "static"]),//自定义的插件用于替换引入路径
     new MiniCssExtractPlugin({//打包css'main[chunkhash].css'
       filename: 'main.css'
     }),
