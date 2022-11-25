@@ -161,6 +161,14 @@ module.exports = {
   },
   optimization: {
     minimize: true,
+    splitChunks: {
+      chunks: 'all',
+      minSize: 500 * 1000,
+      maxSize: 1000 * 1000,
+      minChunks: 1,
+      maxAsyncRequests: 6,
+      maxInitialRequests: 4,
+    },
     minimizer: [
       new CssMinimizerPlugin(),
       new TerserPlugin({

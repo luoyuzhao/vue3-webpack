@@ -1,11 +1,12 @@
 
-import Component from './component'
+import Component from '../component'
 import * as tpl from './main.html'
 import Module1 from './module1/module1';
 import Module2 from './module2/module2';
 import Module3 from './module3/module3';
-import { createStore } from 'vuex'
 import { createRouter,createWebHashHistory } from 'vue-router'
+import { GlobalStore } from '../store/globalstore'
+import { storeToRefs } from 'pinia';
 export default class Main extends Component {
     _data = {};
     _module1 = new Module1();
@@ -17,23 +18,18 @@ export default class Main extends Component {
         { path: '/module2', component: this._module2.getComponent() },
         { path: '/module3', component: this._module3.getComponent() }
     ]
-    _store = createStore({
-        state: {},
-        getters: {},
-        mutations: {},
-        actions: {},
-        modules: {
-            module1: this._module1,
-            module2: this._module2,
-            module3: this._module3
-        }
-    });
+
     _router = createRouter({
         history: createWebHashHistory(),
         routes: this._routes
     });
 
     _component = {
+        setup() {
+            // const store = GlobalStore();
+            // const { testData,testDataStr } = storeToRefs(store);
+            // store.testDataChanged({A:1,B:2});
+        },
         data: () => {
             return this._data;
         },
@@ -56,8 +52,7 @@ export default class Main extends Component {
     }
     constructor() {
         super('main-app')
-        this.apply(this._component);
+        this.install(this._component);
         App.use(this._router);
-        App.use(this._store);
     }
 }

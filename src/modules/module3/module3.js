@@ -1,6 +1,6 @@
 
 import * as tpl from './module3.html'
-import Component from '../component'
+import Component from '../../component'
 export default class Module3 extends Component{
     _component = {
         data: () => {
@@ -13,6 +13,6 @@ export default class Module3 extends Component{
     }
     constructor() {
         super('m-module3');
-        this.apply(this._component);
+        this.install(this._component);
     }
 }

@@ -1,9 +1,7 @@
 # vue-without-cli
-create vue app without vue-cli and vue-loader vue-complier...
+无需vue-cli 创建复杂的结构和臃肿的打包环境。分离UI，样式和逻辑
 
-无需vue-cli 创建复杂的结构和臃肿的打包环境。从cdn加载避免打包文件过大，分离UI，样式和逻辑
-
-webpack仅打包工程代码 vue仅需要router i18n vuex.
+webpack仅打包工程代码 vue仅需要router i18n pinia.
 
 Note:
 
@@ -22,7 +20,7 @@ new ConfigRefPlugin(["thirdParty", "static"])
 
 start:
 
-1. npm install
+1. cnpm install
 
 2. create module
 
