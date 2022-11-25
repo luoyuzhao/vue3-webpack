@@ -186,10 +186,9 @@ module.exports = {
     extensions: ['.wasm', '.mjs', '.js', '.json', '.css', '.less']
   },
   externals: {
-    //CDN Links
+    //CDN Links 此处配置的依赖将不参与编译打包
     'vue': 'Vue',
     'vue-i18n':'VueI18n',
-    'vuex':'Vuex',
     'vue-router':'VueRouter'
   },
   plugins: [
