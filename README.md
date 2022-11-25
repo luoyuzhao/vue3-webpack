@@ -41,9 +41,12 @@ export default class Module1 extends Component{
     }
     constructor() {
         super('m-module1');
-        this.apply(this._component);
+        this.install(this._component);
     }
 }
+
+new Module1()后
+可使用<m-module1></m-module1>标签
 ```
 npm run dev for development
 
