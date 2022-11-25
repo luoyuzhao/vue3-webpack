@@ -5,7 +5,7 @@ webpack仅打包工程代码 vue仅需要router i18n pinia.
 
 Note:
 
-1.在面临复杂的第三方库时，例如Openlayers，Echart 不建议cdn引用 采用局部import引用打包
+1.在面临复杂的第三方库时，例如ant-design-vue， Openlayers，Echart 不建议cdn引用 按需局部import引用打包
 
 2.在确定要完整引用库文件，才采用cdn方式
 
