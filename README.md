@@ -11,11 +11,11 @@ Note:
 
 3.本例仅为Vue3.x
 
-4.在面临Electron或其它WebView客户端场景时,建议启用路径替换,在常规服务器环境不建议这么做
+4.在面临Electron或其它WebView客户端场景时,建议启用路径替换,在常规服务器环境不需要
 
-在webpack.config.js中
+配置方式在webpack.config.js中
 
-new ConfigRefPlugin(["thirdParty", "static"])
+new ConfigRefPlugin(["thirdParty", "static"]) 引用该路径下静态资源/static会被替换为./static
 
 
 start:
